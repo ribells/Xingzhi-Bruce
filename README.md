@@ -3,6 +3,11 @@ Mentoring Repository for Xingzhi and Bruce
 
 Notes for the mentorship work together:
 
-Example of Reinforcement Learning as applied to Mario Brothers: https://www.youtube.com/watch?v=OQitI066aI0
+Video of Reinforcement Learning as applied to Mario Brothers: https://www.youtube.com/watch?v=OQitI066aI0
 (uses a Python support package: gym-super-mario-bros)
 
+Starting example:
+https://amunategui.github.io/reinforcement-learning/index.html
+
+Possible userful Python Packages:
+https://github.com/Quentin18/gymnasium-2048
