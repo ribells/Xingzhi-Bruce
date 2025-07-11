@@ -9,5 +9,5 @@ Video of Reinforcement Learning as applied to Mario Brothers: https://www.youtub
 Starting example:
 https://amunategui.github.io/reinforcement-learning/index.html
 
-Possible userful Python Packages:
+Possible useful Python Packages:
 https://github.com/Quentin18/gymnasium-2048
