@@ -14,3 +14,6 @@ https://github.com/Quentin18/gymnasium-2048
 
 Cartpole Gymnasium GitHub:
 https://github.com/Amirarsalan-sn/CartPoleV1
+
+Cartpole Tutorial:
+https://docs.pytorch.org/tutorials/intermediate/reinforcement_q_learning.html
