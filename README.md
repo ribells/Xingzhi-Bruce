@@ -11,3 +11,6 @@ https://amunategui.github.io/reinforcement-learning/index.html
 
 Possible useful Python Packages:
 https://github.com/Quentin18/gymnasium-2048
+
+Cartpole Gymnasium GitHub:
+https://github.com/Amirarsalan-sn/CartPoleV1
