@@ -1,11 +1,10 @@
-#PPBALL V2.1
 import pygame,sys,random
 SCREEN_W,SCREEN_H=1200,800
 BORDER_W=10
-ACCURACY=2#add in V1.0
-G=0.01#重力加速度add in V1.1
-SPEEDY_MAX=0.2#add in V1.1
-def set_new_ball(ball):#add in V1.0
+ACCURACY=2
+G=0.01
+SPEEDY_MAX=0.2
+def set_new_ball(ball):
     global gameStat
     gameStat=0
     ball.x,ball.y=SCREEN_W//2, 10
@@ -15,33 +14,7 @@ def set_new_ball(ball):#add in V1.0
 def show_txt(scr,txt,font,x,y,c):
     img=font.render(txt,True,c)
     scr.blit(img,(x,y))
-def draw(screen,pixel,x0,y0,scale):
-    color=(pygame.color.THECOLORS['black'],
-           pygame.color.THECOLORS['gray32'],
-           pygame.color.THECOLORS['gray64'],
-           pygame.color.THECOLORS['white'],
-           pygame.color.THECOLORS['red'],
-           pygame.color.THECOLORS['green'],
-           pygame.color.THECOLORS['blue'],
-           pygame.color.THECOLORS['orange'],
-           pygame.color.THECOLORS['brown'],
-           pygame.color.THECOLORS['purple'],
-           pygame.color.THECOLORS['yellow'],
-           pygame.color.THECOLORS['cyan'],
-           pygame.color.THECOLORS['sienna'],
-           pygame.color.THECOLORS['chocolate'],
-           pygame.color.THECOLORS['coral'],
-           pygame.color.THECOLORS['darkgreen'])
-    for y in range(len(pixel)):
-        line=pixel[y]
-        for x in range(len(line)):
-            if 'A'<=line[x]<='F':
-                c=color[ord(line[x])-55]
-            elif '0'<=line[x]<='9':
-                c=color[eval(line[x])]
-            else:
-                continue
-            pygame.draw.rect(screen,c,(x*scale+x0,y*scale+y0,scale,scale),0)
+
 class CLS_ball( object ):
     def __init__(self,x,y,spdX,spdY,scale):
         self.x, self.y=x,y
@@ -67,9 +40,7 @@ class CLS_ball( object ):
         self.collide(paddleR)
         
     def draw(self,scr):
-        draw(scr,\
-                self.picList[self.counter//self.frmItv%len(self.picList)],\
-                self.x,self.y,self.scale)
+        pygame.draw.circle(scr, (255, 255, 0), (self.x, self.y), 5 * self.scale)
         self.counter+=((self.spdX>0)-(self.spdX>0))
     def collide(self,pad):
         global gameStat
@@ -118,9 +89,6 @@ def draw_field(scr):
     c=pygame.color.THECOLORS['brown']
     pygame.draw.rect(scr,c,(0,0,SCREEN_W,BORDER_W),0)
     pygame.draw.rect(scr,c,(0,SCREEN_H-BORDER_W,SCREEN_W,BORDER_W),0)
-    show_txt(scr,'Pingpong',font64,350,200,(0,255,255))
-    show_txt(scr,'SCORE:'+str(paddleL.score),font64,100,10,(255,0,0))
-    show_txt(scr,'SCORE:'+str(paddleR.score),font64,SCREEN_W-300,10,(0,0,255))
 #---pygame init---
 pygame.init()
 pygame.display.set_caption("Pingpong Ball")
@@ -129,60 +97,6 @@ clock=pygame.time.Clock()
 font64=pygame.font.Font('simkai.ttf',64)
 #---data init---
 ball=CLS_ball(10,10,2,2,3)
-# 第1帧像素数据
-pixel = []
-pixel.append('....AA....')
-pixel.append('..DDAADD..')
-pixel.append('.DDDAADDD.')
-pixel.append('.DDDAADDD.')
-pixel.append('DDDDAADDDD')
-pixel.append('DDDDAADDDD')
-pixel.append('.DDDAADDD.')
-pixel.append('.DDDAADDD.')
-pixel.append('..DDAADD..')
-pixel.append('....AA....')
-ball.add_pic(pixel)
-# 第2帧像素数据
-pixel = []
-pixel.append('....DD....')
-pixel.append('..DDDDDD..')
-pixel.append('.DDDDDDAD.')
-pixel.append('.DDDDDAAD.')
-pixel.append('DDDDDAADDD')
-pixel.append('DDDDAADDDD')
-pixel.append('.DAADDDD.')
-pixel.append('.DDDDDDD.')
-pixel.append('..DDDDDD..')
-pixel.append('....DD....')
-ball.add_pic(pixel)
-
-# 第3帧像素数据
-pixel = []
-pixel.append('....DD....')
-pixel.append('..DDDDDD..')
-pixel.append('.DDDDDDDD.')
-pixel.append('.DDDDDDDD.')
-pixel.append('AAAAAAAAAA')
-pixel.append('AAAAAAAAAA')
-pixel.append('.DDDDDDDD.')
-pixel.append('.DDDDDDDD.')
-pixel.append('..DDDDDD..')
-pixel.append('...DDDD...')
-ball.add_pic(pixel)
-
-# 第4帧像素数据
-pixel = []
-pixel.append('....DD....')
-pixel.append('..DADDDD..')
-pixel.append('.DDAADDDD.')
-pixel.append('.DDDAADDD.')
-pixel.append('DDDDDAADDD')
-pixel.append('DDDDDDAADD')
-pixel.append('.DDDDDDAA.')
-pixel.append('.DDDDDDDD.')
-pixel.append('..DDDDDD..')
-pixel.append('...DDDD...')
-ball.add_pic(pixel)
 
 paddleL=CLS_paddle(0,200,10,150,(255,0,0))
 paddleR=CLS_paddle(SCREEN_W-10,200,10,150,(0,0,255))
