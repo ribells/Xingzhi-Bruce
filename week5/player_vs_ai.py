@@ -1,14 +1,13 @@
 import pygame, sys, random
 import torch
 import torch.nn as nn
-import time
 
 class DQN(nn.Module):
     def __init__(self):
         super(DQN, self).__init__()
-        self.fc1 = nn.Linear(8, 128)
-        self.fc2 = nn.Linear(128, 128)
-        self.fc3 = nn.Linear(128, 3)
+        self.fc1 = nn.Linear(8, 512)
+        self.fc2 = nn.Linear(512, 512)
+        self.fc3 = nn.Linear(512, 3)
 
     def forward(self, x):
         x = torch.relu(self.fc1(x))
@@ -17,7 +16,7 @@ class DQN(nn.Module):
         return x
 
 model = DQN()
-model.load_state_dict(torch.load('model_weights_7.pth', weights_only=True, map_location=torch.device('cpu')))
+model.load_state_dict(torch.load('model_weights_700.pth', weights_only=True, map_location=torch.device('cpu')))
 
 def act(bx, by, spdx, spdy, px, py, ox, oy):
     return torch.argmax(model(torch.Tensor([bx, by, spdx, spdy, px, py, ox, oy])))
