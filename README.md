@@ -17,3 +17,6 @@ https://github.com/Amirarsalan-sn/CartPoleV1
 
 Cartpole Tutorial:
 https://docs.pytorch.org/tutorials/intermediate/reinforcement_q_learning.html
+
+Similar paper format of interest:
+https://static1.squarespace.com/static/56243822e4b0007a000ea37e/t/67feea1964e51071d6500f58/1744759321964/Manaal_Tafseer+%281%29.pdf
